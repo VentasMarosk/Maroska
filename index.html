@@ -74,6 +74,9 @@
       max-width: 100%;
       margin: auto;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .pasarela-slider {
@@ -82,12 +85,13 @@
     }
 
     .pasarela img {
-      flex: 0 0 100%;
+      flex: 0 0 auto;
       max-width: 100%;
       height: auto;
       max-height: 200px; /* Ajustar altura máxima */
       border: 2px solid #fff;
       box-shadow: 0 0 10px #ff4500;
+      margin: 0 10px;
     }
 
     .btn {
@@ -118,6 +122,10 @@
       padding: 20px;
     }
 
+    .galeria-item {
+      text-align: center;
+    }
+
     .galeria img {
       max-width: 200px;
       height: auto;
@@ -143,6 +151,10 @@
       flex-wrap: wrap;
       gap: 20px;
       padding: 20px;
+    }
+
+    .camisetas-item {
+      text-align: center;
     }
 
     .camisetas img {
@@ -224,7 +236,7 @@
 
     .btn-whatsapp {
       position: fixed;
-      bottom: 50px;
+      bottom: 70px;
       right: 20px;
       background-color: rgba(37, 211, 102, 0.7);
       color: #fff;
@@ -234,23 +246,16 @@
       font-size: 1.2em;
       box-shadow: 0 0 10px #ff4500;
       z-index: 1000;
-      transition: background-color 0.3s, transform 0.3s;
-      animation: btnEffect 2s infinite;
+      transition: transform 0.3s;
+      animation: btnZoomEffect 2s infinite;
     }
 
-    .btn-whatsapp:hover {
-      background-color: rgba(37, 211, 102, 1);
-      transform: scale(1.1);
-    }
-
-    @keyframes btnEffect {
+    @keyframes btnZoomEffect {
       0%, 100% {
         transform: scale(1);
-        background-color: rgba(37, 211, 102, 0.7);
       }
       50% {
         transform: scale(1.1);
-        background-color: rgba(37, 211, 102, 1);
       }
     }
   </style>
@@ -272,30 +277,38 @@
   </div>
 
   <div class="galeria">
-    <div>
+    <div class="galeria-item">
       <img src="https://github.com/VentasMarosk/Maroska/blob/d1ebb3de94a98f6d3b34c33cc0b78c551c7d9d69/bbbn.jpg?raw=true" alt="Producto 1">
       <p class="descripcion">Alta calidad y durabilidad. ¡Compra ahora!</p>
     </div>
-    <div>
+    <div class="galeria-item">
       <img src="https://github.com/VentasMarosk/Maroska/blob/d871356ae31e91d3f5958e6f8b2252bb4c9739ca/smdsamd.jpg?raw=true" alt="Producto 2">
       <p class="descripcion">Estilo y comodidad garantizados. ¡Compra ya!</p>
+    </div>
+    <div class="galeria-item">
+      <img src="https://github.com/VentasMarosk/Maroska/blob/90c35220448ef15be8079e8da01cbef755957736/111111.jpeg?raw=true" alt="Producto 3">
+      <p class="descripcion">Diseño moderno y versátil. ¡No te lo pierdas!</p>
+    </div>
+    <div class="galeria-item">
+      <img src="https://github.com/VentasMarosk/Maroska/blob/90c35220448ef15be8079e8da01cbef755957736/11111111.jpeg?raw=true" alt="Producto 4">
+      <p class="descripcion">Materiales de alta calidad. ¡Compra ya!</p>
     </div>
   </div>
 
   <div class="camisetas">
-    <div>
+    <div class="camisetas-item">
       <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/bwhbw.jpg?raw=true" alt="Camiseta 1">
       <p class="descripcion">Cómoda y estilizada. ¡Compra ya!</p>
     </div>
-    <div>
+    <div class="camisetas-item">
       <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/jej.jpg?raw=true" alt="Camiseta 2">
       <p class="descripcion">Ideal para correr y mantenerte fresco. ¡Compra ahora!</p>
     </div>
-    <div>
+    <div class="camisetas-item">
       <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/hejhje.jpg?raw=true" alt="Camiseta 3">
       <p class="descripcion">Perfecta para tus entrenamientos diarios. ¡Haz tu pedido hoy!</p>
     </div>
-    <div>
+    <div class="camisetas-item">
       <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/jjkw.jpg?raw=true" alt="Camiseta 4">
       <p class="descripcion">La mejor calidad al mejor precio. ¡Disponible ahora!</p>
     </div>
@@ -309,6 +322,7 @@
   <div class="contenido-final">
     <h2>¿Por qué comprar en Maroska?</h2>
     <p>En Tienda deportiva Maroska nos dedicamos a ofrecer la mejor calidad en ropa deportiva desde hace más de 10 años. Nuestros clientes siempre regresan debido a nuestro compromiso con la excelencia y la satisfacción del cliente.</p>
+    <p>Nuestros productos están hechos de materiales de alta calidad que garantizan durabilidad y comodidad. Además, contamos con un equipo de expertos que seleccionan cuidadosamente cada prenda para asegurarse de que cumpla con nuestros estrictos estándares de calidad.</p>
     <p>Visítanos hoy y descubre por qué somos la tienda de deportes preferida en la región. ¡Te esperamos!</p>
 
     <a href="https://wa.me/3165654053" class="btn-contact">WhatsApp</a>
@@ -318,7 +332,7 @@
 
   <div class="ubicacion">
     <h2>Ubicación</h2>
-    <p>Bogotá, San andresito, Calle 9 N 21-49 LOCAL 111</p>
+    <p>Bogotá, San andresito, Calle 9 N 21-49</p>
     <img src="https://github.com/VentasMarosk/Maroska/blob/98bdc2184d3456dda56683be28f2576a3f5ad4a4/1.jpeg?raw=true" alt="Ubicación Maroska">
   </div>
 
@@ -341,7 +355,7 @@
         slideIndex = slides.length;
       }
       slides[slideIndex - 1].style.display = 'block';
-      setTimeout(showSlides, 2000); // Cambia cada 4 segundos
+      setTimeout(showSlides, 2000); // Cambia cada 2 segundos
     }
 
     function moverSlide(n) {

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda deportiva Maroska</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .banner {
+      padding: 50px 0;
+    }
+
+    .titulo-grande {
+      font-size: 3em;
+      color: #ff4500;
+      background: #000;
+      padding: 10px;
+      display: inline-block;
+      animation: sparkEffect 2s infinite;
+    }
+
+    @keyframes sparkEffect {
+      0%, 100% {
+        text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff4500;
+      }
+      50% {
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+      }
+    }
+
+    .subtitulo {
+      font-size: 1.5em;
+      color: #ff4500;
+      padding: 5px;
+      display: inline-block;
+    }
+
+    .motivacion {
+      font-size: 1.2em;
+      margin: 20px 0;
+      color: #ff4500;
+      text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500;
+    }
+
+    .pasarela-container {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .pasarela-slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .pasarela img {
+      flex: 0 0 33%;
+      max-width: 33%;
+      height: auto;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #ff4500;
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      font-size: 2em;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .btn-prev {
+      left: 10px;
+    }
+
+    .btn-next {
+      right: 10px;
+    }
+
+    .galeria {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .galeria img {
+      max-width: 200px;
+      height: auto;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #ff4500;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff4500;
+    }
+
+    .galeria .descripcion {
+      text-align: center;
+      color: #fff;
+    }
+
+    .camisetas {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .camisetas img {
+      max-width: 150px;
+      height: auto;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #ff4500;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .camisetas img:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px #ff4500;
+    }
+
+    .camisetas .descripcion {
+      text-align: center;
+      color: #fff;
+    }
+
+    .video-recuadro {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 50px 0;
+    }
+
+    .video-recuadro video {
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #ff4500;
+      width: 45%;
+      height: auto;
+    }
+
+    .contenido-final {
+      margin: 50px 0;
+      padding: 20px;
+      background: #1a1a1a;
+      color: #fff;
+      box-shadow: 0 0 10px #ff4500;
+    }
+
+    .btn-contact {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #25d366;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2em;
+      box-shadow: 0 0 10px #ff4500;
+    }
+
+    .btn-contact.facebook {
+      background-color: #4267B2;
+    }
+
+    .btn-contact.instagram {
+      background-color: #E1306C;
+    }
+
+    .ubicacion {
+      padding: 20px;
+      margin: 20px 0;
+      background: #1a1a1a;
+      color: #fff;
+      box-shadow: 0 0 10px #ff4500;
+    }
+
+    .ubicacion img {
+      max-width: 300px;
+      height: auto;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #ff4500;
+    }
+
+    .btn-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(37, 211, 102, 0.7);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2em;
+      box-shadow: 0 0 10px #ff4500;
+      z-index: 1000;
+      transition: background-color 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: rgba(37, 211, 102, 1);
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1 class="titulo-grande">Tienda deportiva Maroska</h1>
+    <h2 class="subtitulo">Camisetas, tenis y ropa deportiva al mejor precio</h2>
+    <p class="motivacion">¡Ven y descubre las mejores ofertas en ropa deportiva! La calidad y el estilo que buscas, solo en Maroska.</p>
+    <div class="pasarela-container">
+      <div class="pasarela-slider">
+        <img src="https://github.com/VentasMarosk/Maroska/blob/eae6b07e68223a33dfdfeb8300532cea41946278/IMG-20240316-WA0075.jpg?raw=true" alt="Imagen 1">
+        <img src="https://github.com/VentasMarosk/Maroska/blob/eae6b07e68223a33dfdfeb8300532cea41946278/IMG-20240316-WA0078.jpg?raw=true" alt="Imagen 2">
+        <img src="https://github.com/VentasMarosk/Maroska/blob/eae6b07e68223a33dfdfeb8300532cea41946278/IMG-20240316-WA0083.jpg?raw=true" alt="Imagen 3">
+      </div>
+      <button class="btn btn-prev" onclick="moverSlide(-1)">&#10094;</button>
+      <button class="btn btn-next" onclick="moverSlide(1)">&#10095;</button>
+    </div>
+  </div>
+
+  <div class="galeria">
+    <div>
+      <img src="https://github.com/VentasMarosk/Maroska/blob/d1ebb3de94a98f6d3b34c33cc0b78c551c7d9d69/bbbn.jpg?raw=true" alt="Imagen 1">
+      <p class="descripcion">Consigue esta camiseta a un precio increíble. ¡Ideal para tus entrenamientos!</p>
+    </div>
+    <div>
+      <img src="https://github.com/VentasMarosk/Maroska/blob/d871356ae31e91d3f5958e6f8b2252bb4c9739ca/smdsamd.jpg?raw=true" alt="Imagen 2">
+      <p class="descripcion">Camiseta de alta calidad, perfecta para cualquier actividad deportiva.</p>
+    </div>
+  </div>
+
+  <div class="camisetas">
+    <div>
+      <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/bwhbw.jpg?raw=true" alt="Camiseta 1">
+      <p class="descripcion">Cómoda y estilizada. ¡Compra ya!</p>
+    </div>
+    <div>
+      <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/jej.jpg?raw=true" alt="Camiseta 2">
+      <p class="descripcion">Ideal para correr y mantenerte fresco. ¡Compra ahora!</p>
+    </div>
+    <div>
+      <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/hejhje.jpg?raw=true" alt="Camiseta 3">
+      <p class="descripcion">Perfecta para tus entrenamientos diarios. ¡Haz tu pedido hoy!</p>
+    </div>
+    <div>
+      <img src="https://github.com/VentasMarosk/Maroska/blob/cdc135d7f8383664f8a3b2a029856c6404a8b4a1/jjkw.jpg?raw=true" alt="Camiseta 4">
+      <p class="descripcion">La mejor calidad al mejor precio. ¡Disponible ahora!</p>
+    </div>
+  </div>
+
+  <div class="video-recuadro">
+    <video src="https://github.com/VentasMarosk/Maroska/blob/b7055fb7085bf45156abbfb288a1a1afed8cc777/WhatsApp-Video-2024-07-05-at-9.58.21-PM%20(1).webm?raw=true" controls></video>
+    <video src="https://github.com/VentasMarosk/Maroska/blob/b7055fb7085bf45156abbfb288a1a1afed8cc777/WhatsApp-Video-2024-07-05-at-9.58.21-PM%20(1).webm?raw=true" controls></video>
+  </div>
+
+  <div class="contenido-final">
+    <h2>¿Por qué comprar en Maroska?</h2>
+    <p>En Tienda deportiva Maroska nos dedicamos a ofrecer la mejor calidad en ropa deportiva desde hace más de 10 años. Nuestros clientes siempre regresan debido a nuestro compromiso con la excelencia y la satisfacción del cliente.</p>
+    <p>Nuestros productos están hechos de materiales de alta calidad que garantizan durabilidad y comodidad. Además, contamos con un equipo de expertos que seleccionan cuidadosamente cada prenda para asegurarse de que cumpla con nuestros estrictos estándares de calidad.</p>
+    <p>Visítanos hoy y descubre por qué somos la tienda de deportes preferida en la región. ¡Te esperamos!</p>
+
+    <a href="https://wa.me/3165654053" class="btn-contact">WhatsApp</a>
+    <a href="https://www.facebook.com" class="btn-contact facebook">Síguenos en Facebook</a>
+    <a href="https://www.instagram.com" class="btn-contact instagram">Síguenos en Instagram</a>
+  </div>
+
+  <div class="ubicacion">
+    <h2>Ubicación</h2>
+    <p>Bogotá, San andresito, Calle 9 N 21-49</p>
+    <img src="https://github.com/VentasMarosk/Maroska/blob/98bdc2184d3456dda56683be28f2576a3f5ad4a4/1.jpeg?raw=true" alt="Ubicación Maroska">
+  </div>
+
+  <a href="https://wa.me/3165654053" class="btn-whatsapp">Comunícate ahora</a>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.querySelectorAll('.pasarela-slider img');
+      slides.forEach((slide, index) => {
+        slide.style.display = 'none';
+      });
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      if (slideIndex < 1) {
+        slideIndex = slides.length;
+      }
+      slides[slideIndex - 1].style.display = 'block';
+      setTimeout(showSlides, 3000); // Cambia cada 3 segundos
+    }
+
+    function moverSlide(n) {
+      let slides = document.querySelectorAll('.pasarela-slider img');
+      slides.forEach((slide, index) => {
+        slide.style.display = 'none';
+      });
+      slideIndex += n;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      if (slideIndex < 1) {
+        slideIndex = slides.length;
+      }
+      slides[slideIndex - 1].style.display = 'block';
+    }
+  </script>
+</body>
+</html>
